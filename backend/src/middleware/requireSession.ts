@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction,Router } from "express";
+import { Request, Response, NextFunction, Router } from "express";
 import { descopeClient } from "../config/descope.js";
 import { ensureUser } from "../repository/user.repository.js";
 
-const router=Router()
+const router = Router();
 export type AuthContext = {
   authUserId: string;
   email?: string;
@@ -55,7 +55,7 @@ export async function requireSession(
 
     //user check
 
-    const user = await ensureUser({ authUserId,email });
+    const user = await ensureUser({ authUserId, email });
 
     // add auth info in req object
     req.auth = {
@@ -75,4 +75,3 @@ export async function requireSession(
     throw new Error("Authentication Error!");
   }
 }
-

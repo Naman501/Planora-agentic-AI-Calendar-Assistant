@@ -8,8 +8,8 @@ export type CurrentUserRowInfo={
 }
 
 export async function ensureUser(input:{
-    auth_userId: string;
-     email: string;
+    auth_userId: string,
+     email: string
 }):Promise<CurrentUserRowInfo> {
     // <CurrentUserRowInfo>
     const result= await getPool().query(

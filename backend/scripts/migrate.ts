@@ -15,8 +15,8 @@ async function main(){
         await pool.query(sql)
 
         console.log(`Migrated: sql/${file}`)
-        await closePool()
     }
+    await closePool()
 }
 
 main().catch(err=>{
